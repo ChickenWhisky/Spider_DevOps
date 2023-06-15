@@ -1,7 +1,7 @@
 # DevOps
 
 Hello and welcome to my Spider Task for DevOps.
-After cloning the repository run the following steps
+After cloning the repository follow the steps below
 
 ## Without Docker
 
