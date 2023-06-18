@@ -1,5 +1,7 @@
 #!/bin/bash
 
+directory="/home/bigBrother/logs/system_info.txt"
+
 # Function to retrieve the desktop processor information
 get_processor_info() {
     processor=$(grep "model name" /proc/cpuinfo | head -n1 | awk -F': ' '{print $2}')
@@ -43,24 +45,20 @@ get_installed_software() {
     echo "$software"
 }
 
-# Main script
-
 # Create the system_info.txt file
-echo "========================" > "/home/bigBrother/logs/system_info.txt"
-echo "      SYSTEM INFO" >> "/home/bigBrother/logs/system_info.txt"
-echo "========================" >> "/home/bigBrother/logs/system_info.txt"
-echo >> "/home/bigBrother/logs/system_info.txt"
-
-# Retrieve system information and append it to the file
-get_processor_info >> "/home/bigBrother/logs/system_info.txt"
-get_kernel_info >> "/home/bigBrother/logs/system_info.txt"
-get_os_version >> "/home/bigBrother/logs/system_info.txt"
-get_memory_info >> "/home/bigBrother/logs/system_info.txt"
-get_serial_number >> "/home/bigBrother/logs/system_info.txt"
-get_system_ip >> "/home/bigBrother/logs/system_info.txt"
-echo "-------------------------" >> "/home/bigBrother/logs/system_info.txt"
-echo >> "/home/bigBrother/logs/system_info.txt"
-get_installed_software >> "/home/bigBrother/logs/system_info.txt"
-echo >> "/home/bigBrother/logs/system_info.txt"
-echo "========================" >> "/home/bigBrother/logs/system_info.txt"
+echo "========================" > $directory
+echo "      SYSTEM INFO" >> $directory
+echo "========================" >> $directory
+echo >> $directory
+get_processor_info >> $directory
+get_kernel_info >> $directory
+get_os_version >> $directory
+get_memory_info >> $directory
+get_serial_number >> $directory
+get_system_ip >> $directory
+echo "-------------------------" >> $directory
+echo >> $directory
+get_installed_software >> $directory
+echo >> $directory
+echo "========================" >> $directory
 
